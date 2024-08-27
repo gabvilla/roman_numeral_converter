@@ -31,14 +31,14 @@ const convertToRoman = num => {
    return res.join('');
 };
 
-const formValidation = () => {
-   const errorText = '';
+const formValidation = (int) => {
+   let errorText = '';
 
-   if (userNumber.value == "" || isNaN(userNumber.value)){
+   if (int == "" || isNaN(int)){
       errorText = 'Please enter a valid number';
-   }else if (userNumber.value <= 0) {
+   }else if (int <= 0) {
       errorText = 'Please enter a number greater than or equal to 1';
-   } else if (userNumber.value > 3999){
+   } else if (int > 3999){
       errorText = 'Please enter a number less than or equal to 3999';
    } else {
       return true
@@ -68,7 +68,7 @@ form.addEventListener('submit', e => {
 
    clearOutput();
 
-   if (formValidation){
+   if (formValidation(int)){
       output.innerText = convertToRoman(int);
    }
  }
